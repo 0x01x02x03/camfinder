@@ -1,5 +1,9 @@
 # ignore possibly sensitive data
 config.js
 
+# ignore output
+output.tsv
+output.lock
+
 # ignore node modules
 node_modules/

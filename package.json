@@ -1,0 +1,20 @@
+{
+  "name": "ipcam-bettersearch",
+  "version": "1.0.0",
+  "description": "Searches for insecure IP cameras on shodan.io",
+  "main": "search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shodan"
+  ],
+  "author": "Zudo",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lockfile": "^1.0.2",
+    "request": "^2.76.0",
+    "shodan-client": "^3.0.1"
+  }
+}
