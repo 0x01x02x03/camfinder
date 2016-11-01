@@ -6,7 +6,6 @@ const config = require("./config");
 const fs = require("fs");
 
 const API_KEY = config.apiKey;
-const VIRTUAL = config.test;
 const DEFAULT_PASSWORDS = ["","123456","12345","admin","admin123","admin123456", "admin12345678910", "admin1", "admin321", "admin1", "admin2", "admin3", "admin4", "admin5", "admin6", "admin7", "admin8", "admin9", "foscam", "qwertyuiop", "qwerty", "Admin", "one23456"];
 
 let cameras = [];
@@ -61,18 +60,12 @@ shodan.apiInfo(API_KEY).then(d => {
   console.log("[Error]".red,error);
 });
 
-if (!VIRTUAL) {
-  console.log("[Info]".green,"Searching live Shodan data.");
-  shodan.search("'netwave ip camera'", API_KEY)
-  .then(result => {
-    matches = result.matches;
-    testAllCameras(matches);
-  })
-  .catch(error => {
-    console.log("[Error]".red,error);
-  })
-} else {
-  console.log("[Info]".green,"Testing on virtual data.");
-  matches = [{"ip_str":"72.9.28.178","port":80}];
+console.log("[Info]".green,"Searching live Shodan data.");
+shodan.search("'netwave ip camera'", API_KEY)
+.then(result => {
+  matches = result.matches;
   testAllCameras(matches);
-}
+})
+.catch(error => {
+  console.log("[Error]".red,error);
+})
