@@ -1,0 +1,5 @@
+# ignore possibly sensitive data
+config.js
+
+# ignore node modules
+node_modules/
